@@ -17,6 +17,10 @@ export default StyleSheet.create({
         right: 0,
         bottom: 0,
     },
+    // preview: {
+    //     flex: 1,
+    //     width:"100%"
+    // },
     bottomToolbar: {
         width: winWidth,
         position: 'absolute',
