@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Alert, Text, View, FlatList, Button } from 'react-native';
 import styled from 'styled-components/native';
 
-function Review(props, navigation) {
+function Review(props) {
   const [foodItems, setFoodItems] = useState(["Broccoli", "Bell pepper", "Mushroom", "Scallions"]);
 
   useEffect(() => {
