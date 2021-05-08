@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@google-cloud/vision": "^2.3.1",
     "dotenv": "^9.0.0",
     "expo": "~41.0.1",
     "expo-status-bar": "~1.0.4",
