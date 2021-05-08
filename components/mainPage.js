@@ -7,7 +7,10 @@ function MainPage(props) {
       <Text>
         Joe's Kitchen
       </Text>
-      <Button onPress={ () => props.navigation.navigate('CameraPage') } />
+      <Button
+        title="Start"
+        onPress={ () => props.navigation.navigate('CameraPage') } 
+      />
     </View>
   );
 }
