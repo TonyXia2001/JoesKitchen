@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Alert, Text, View, FlatList, Button } from 'react-native';
 import styled from 'styled-components/native';
 
-function Review(props) {
+function Review(props, navigation) {
   const [foodItems, setFoodItems] = useState(["Broccoli", "Bell pepper", "Mushroom", "Scallions"]);
 
   useEffect(() => {
@@ -71,7 +71,7 @@ const StyledDeleteButton = styled.Button`
 `;
 
 const StyledText = styled.Text`
-  fontSize: 24px;
+  fontSize: 20px;
   paddingVertical: 10px;
   padding: 5px;
   marginRight: 5px;

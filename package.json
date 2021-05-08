@@ -8,39 +8,27 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@google-cloud/vision": "^2.3.1",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/native": "^5.9.4",
     "@react-navigation/stack": "^5.14.4",
     "axios": "^0.21.1",
     "dotenv": "^9.0.0",
     "expo": "~41.0.1",
-<<<<<<< HEAD
-=======
-    "expo-camera": "~11.0.2",
->>>>>>> b45d2843f13b64b844477bc7c55079b895c78dc4
+    "expo-camera": "^11.0.3",
     "expo-permissions": "~12.0.1",
     "expo-status-bar": "~1.0.4",
-    "google-auth-library": "^7.0.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz",
     "react-native-dotenv": "^2.5.5",
-<<<<<<< HEAD
-=======
     "react-native-easy-grid": "^0.2.2",
->>>>>>> b45d2843f13b64b844477bc7c55079b895c78dc4
     "react-native-gesture-handler": "~1.10.2",
     "react-native-image-picker": "^3.6.0",
     "react-native-reanimated": "~2.1.0",
     "react-native-safe-area-context": "3.2.0",
     "react-native-screens": "~3.0.0",
-<<<<<<< HEAD
     "react-native-web": "~0.13.12",
     "styled-components": "^5.3.0"
-=======
-    "react-native-web": "~0.13.12"
->>>>>>> b45d2843f13b64b844477bc7c55079b895c78dc4
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
