@@ -6,12 +6,14 @@ import * as Permissions from 'expo-permissions';
 import styles from './styles';
 import Toolbar from './toolbarComponent';
 import Gallery from './galleryComponent';
+import getRawLabels from '../utils/googlevision'
 
 class CameraPage extends React.Component {
     camera = null;
 
     state = {
         captures: [],
+        imageLabels: [],
         capturing: null,
         hasCameraPermission: null,
         cameraType: Camera.Constants.Type.back,
@@ -28,8 +30,10 @@ class CameraPage extends React.Component {
     // };
 
     handleShortCapture = async () => {
-        const photoData = await this.camera.takePictureAsync();
-        console.log(photoData)
+        const photoData = await this.camera.takePictureAsync({base64: true});
+        const image = await getRawLabels(photoData.base64.substring(photoData.base64.indexOf(",") + 1));
+        this.setState({imageLabels: [image, ...this.state.imageLabels]});
+        console.log(this.state.imageLabels)
         this.setState({ capturing: false, captures: [photoData, ...this.state.captures] })
     };
 
@@ -40,8 +44,7 @@ class CameraPage extends React.Component {
 
     async componentDidMount() {
         const camera = await Permissions.askAsync(Permissions.CAMERA);
-        const audio = await Permissions.askAsync(Permissions.AUDIO_RECORDING);
-        const hasCameraPermission = (camera.status === 'granted' && audio.status === 'granted');
+        const hasCameraPermission = (camera.status === 'granted');
 
         this.setState({ hasCameraPermission });
     };
