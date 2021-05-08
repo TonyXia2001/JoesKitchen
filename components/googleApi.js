@@ -2,10 +2,12 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
+function GoogleApi() {
   useEffect(() => {
     console.log('Joe');
-  });
+    
+  }, []);
+
   return (
     <View style={styles.container}>
       <Text>Testing Google Cloud</Text>
@@ -22,3 +24,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export { GoogleApi };
