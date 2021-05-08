@@ -4,8 +4,8 @@ import { View, Text } from 'react-native';
 import * as Permissions from 'expo-permissions';
 
 import styles from './styles';
-import Toolbar from './toolbar.component';
-import Gallery from './gallery.component';
+import Toolbar from './toolbarComponent';
+import Gallery from './galleryComponent';
 
 class CameraPage extends React.Component {
     camera = null;
