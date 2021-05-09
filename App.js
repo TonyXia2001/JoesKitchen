@@ -19,15 +19,6 @@ export default function App() {
         <Stack.Screen
           name="CameraPage"
           component={ CameraPage }
-          // options={{
-          //   headerRight: () => (
-          //     <TouchableOpacity
-          //       onPress={() => alert('This is a button!')}
-          //     >
-          //       <Text>&gt;</Text>
-          //     </TouchableOpacity>
-          //   ),
-          // }}
         />
         <Stack.Screen
           name="Review"
