@@ -2,24 +2,29 @@ import axios from 'axios'
 import {GOOGLE_API_KEY} from '@env'
 
 async function getRawLabels(image) {
-
-  const response = await axios.post(`https://content-vision.googleapis.com/v1/images:annotate?alt=json&key=${GOOGLE_API_KEY}`, 
+  const response = await axios.post(`https://content-vision.googleapis.com/v1/images:annotate?alt=json&key=${GOOGLE_API_KEY}`,
     {
-        requests: [
+      requests: [
         {
-            features: [
+          features: [
             {
-                type: "LABEL_DETECTION"
+              type: "LABEL_DETECTION"
             }
-            ],
-            image: {
+          ],
+          image: {
             content: image
-            }
+          }
         }
-        ]
+      ]
     }
-  )
-  return response.data
+  ).catch(e => {
+    console.log(Error(e));
+  });
+  if (response.data) {
+    return response.data;
+  } else {
+    return {};
+  }
 }
 
-export default getRawLabels
+export default getRawLabels;
