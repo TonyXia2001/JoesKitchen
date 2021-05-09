@@ -39,10 +39,11 @@ class CameraPage extends React.Component {
             this.setState({ awaitingGoogle: false});
             return;
         });
-        
-        this.setState({imageLabels: [image, ...this.state.imageLabels]});
+        this.setState({capturing: false, captures: [photoData, ...this.state.captures] })
+        this.setState({awaitingGoogle: false, imageLabels: [image, ...this.state.imageLabels]});
         console.log(this.state.imageLabels)
-        this.setState({ awaitingGoogle: false, capturing: false, captures: [photoData, ...this.state.captures] })
+        console.log(this.filteredListofFood())
+        
     };
 
     async componentDidMount() {
@@ -99,7 +100,7 @@ class CameraPage extends React.Component {
                         if (this.state.awaitingGoogle === true) {
                             Alert.alert("Please wait until Google processes your images!");
                         } else {
-                            this.props.navigation.navigate('Review');
+                            this.props.navigation.navigate('Review', {foodList: this.filteredListofFood()});
                         }
                     }}>
                         <Text>Next</Text>
