@@ -16,6 +16,8 @@
     "expo": "~41.0.1",
     "expo-camera": "^11.0.3",
     "expo-status-bar": "~1.0.4",
+    "fuzzyset": "^1.0.6",
+    "fuzzyset.js": "^1.0.6",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-loadingg": "^1.7.2",
