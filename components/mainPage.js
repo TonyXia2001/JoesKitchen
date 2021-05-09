@@ -4,7 +4,7 @@ import styled from 'styled-components';
 // import styles from './styles';
 
 
-function MainPage(props) { 
+function MainPage({navigation}) { 
   return(
     <View style={styles.container}>
       <View style={styles.backgroundContainer}>
@@ -12,7 +12,7 @@ function MainPage(props) {
       </View>
       <Text style={styles.title}>Joe's {"\n"}Kitchen</Text>
       <StyledButton
-        onPress={() => props.navigation.navigate("CameraPage")}
+        onPress={() => navigation.navigate("CameraPage")}
       >
         <Text style={styles.start}>Start</Text>
       </StyledButton>

@@ -144,7 +144,7 @@ const StyledContainer = styled.View`
 `;
 
 const StyledBox = styled.View`
-  width: 50%;
+  width: 40%;
 `;
 
 const StyledDeleteButton = styled.Button`
