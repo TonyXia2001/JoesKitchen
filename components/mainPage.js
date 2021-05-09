@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Image, Text, TouchableOpacity } from 'react-native';
-// import styled from 'styled-components';
-import { Button } from 'react-native-elements';
+import styled from 'styled-components';
 // import styles from './styles';
 
 
@@ -9,33 +8,34 @@ function MainPage(props) {
   return(
     <View style={styles.container}>
       <View style={styles.backgroundContainer}>
-        <Image style={styles.bakcgroundImage} source={require('../assets/home.jpg')} />
+        <Image style={styles.backgroundImage} source={require('../assets/home.jpg')} />
       </View>
       <Text style={styles.title}>Joe's {"\n"}Kitchen</Text>
-      <TouchableOpacity
-        style={styles.button}
+      <StyledButton
         onPress={() => props.navigation.navigate("CameraPage")}
       >
         <Text>Start</Text>
-      </TouchableOpacity>
+      </StyledButton>
     </View>
   );
 }
 
+const StyledButton = styled(TouchableOpacity)`
+  width: 30%; 
+  marginBottom: 20%; 
+  marginLeft: 7%; 
+  paddingTop: 10px;
+  paddingBottom: 10px;
+  paddingLeft: 20px;
+  paddingRight: 20px;
+  borderWidth: 1px;
+  borderColor: silver;
+  textAlign: center;
+  fontSize: 30px;
+  borderRadius: 5px;
+`;
+
 const styles = StyleSheet.create({
-  button: {
-    width: "30%", 
-    marginBottom: "20%", 
-    marginLeft: "7%", 
-    paddingTop: "10px",
-    paddingBottom: "10px",
-    paddingLeft: "20px",
-    paddingRight: "20px",
-    border: "1px silver solid",
-    textAlign: "center",
-    fontSize: 30,
-    borderRadius: "5%"
-  },
   title:{
     color: "black",
     marginLeft: "7%",
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
       width: '100%',
       height: '100%',
   }, 
-  bakcgroundImage: {
+  backgroundImage: {
       flex: 1, 
       width: null, 
       height: null,
