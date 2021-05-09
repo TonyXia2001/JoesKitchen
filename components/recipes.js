@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import { TouchBallLoading } from 'react-loadingg';
+// import { TouchBallLoading } from 'react-loadingg';
 import RecipeCard from './recipe-card'
 import axios from 'axios'
 import {SPOON_API_KEY} from '@env'
 
-function Recipes(props) {
+function Recipes({navigation, route}) {
   const [recipes, setRecipes] = useState(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -24,11 +24,11 @@ function Recipes(props) {
       setRecipes(response.data);
       setLoading(false);
     };
-    fetchRecipes(props.ingredients);
+    fetchRecipes(route.params.ingredients);
   }, []);
 
   if (loading) {
-    return <TouchBallLoading color="#FFFF00"/>;
+    return <View></View>;
   } else {
     let results = [];
     for (let i = 0; i < recipes.length; i++) {

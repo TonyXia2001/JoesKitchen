@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Review } from './components/review';
 import { MainPage } from './components/mainPage';
 import { CameraPage } from './components/cameraPage';
-// import Recipes from './components/recipes';
+import Recipes from './components/recipes';
 
 const Stack = createStackNavigator();
 
@@ -26,10 +26,10 @@ export default function App() {
           name="Review"
           component={ Review }
         />
-        {/* <Stack.Screen
+        <Stack.Screen
           name="Recipes"
           component={ Recipes }
-        /> */}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

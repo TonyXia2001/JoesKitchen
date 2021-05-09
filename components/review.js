@@ -3,7 +3,7 @@ import { Text, View, FlatList, TouchableOpacity } from 'react-native';
 import styled from 'styled-components';
 import Dialog from "react-native-dialog";
 
-function Review({props, route}) {
+function Review({navigation, route}) {
   const [foodItems, setFoodItems] = useState([]);
   const [dialogVisible, setDialogVisible] = useState(false);
 
@@ -25,7 +25,7 @@ function Review({props, route}) {
     <React.Fragment>
       <StyledNext
           onPress={ () => {
-              this.props.navigation.navigate('Recipes', {ingredients: foodItems});
+              navigation.navigate('Recipes', {ingredients: foodItems});
       }}>
           <Text>Next</Text>
       </StyledNext>

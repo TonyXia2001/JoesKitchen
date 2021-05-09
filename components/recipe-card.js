@@ -5,7 +5,7 @@ import axios from 'axios'
 import {SPOON_API_KEY} from '@env'
 
 export default function RecipeCard(props) {
-  const [link, setLink] = useState(null)
+  const [link, setLink] = useState("https://www.google.com")
   const retrieveLink = async (props) => {
     const response = await axios.get(`https://api.spoonacular.com/recipes/${props.recipe.id}/information`, {
       params: {
@@ -19,6 +19,7 @@ export default function RecipeCard(props) {
 
   useEffect(() => {
     retrieveLink(props);
+    console.log(props.recipe.image);
   }, [])
 
   const handlePress = useCallback(async () => {
@@ -35,7 +36,7 @@ export default function RecipeCard(props) {
     <Card>
       <Card.Title>{props.recipe.title}</Card.Title>
       <Card.Divider/> 
-      <Card.Image source={props.recipe.image}>
+      <Card.Image source={{uri: props.recipe.image}}>
       </Card.Image>
       <Button
         icon={<Icon name='code' color='#ffffff' />}
