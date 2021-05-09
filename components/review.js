@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, Text, View, FlatList, Button } from 'react-native';
-import styled from 'styled-components/native';
+import { Alert, Text, View, FlatList, Button, TouchableOpacity } from 'react-native';
+import styled from 'styled-components';
 
 function Review({props, route}) {
   const [foodItems, setFoodItems] = useState([]);
@@ -16,18 +16,26 @@ function Review({props, route}) {
   }
 
   return (
-    <StyledView>
-      <FlatList
-        keyExtractor={ (item, index) => item}
-        data={ foodItems }
-        renderItem={ ({ item }) => (
-          <FoodItem
-            name={ item }
-            deleteFunction={ deleteFoodItem.bind(this, item) }
-          />
-        )}
-      />
-    </StyledView>
+    <React.Fragment>
+      <StyledNext
+          onPress={ () => {
+              this.props.navigation.navigate('Review', {ingredients: foodItems});
+      }}>
+          <Text>Next</Text>
+      </StyledNext>
+      <StyledView>
+        <FlatList
+          keyExtractor={ (item, index) => item}
+          data={ foodItems }
+          renderItem={ ({ item }) => (
+            <FoodItem
+              name={ item }
+              deleteFunction={ deleteFoodItem.bind(this, item) }
+            />
+          )}
+        />
+      </StyledView>
+    </React.Fragment>
   );
 }
 
@@ -45,6 +53,15 @@ function FoodItem(props) {
     </View>
   );
 }
+
+const StyledNext = styled(TouchableOpacity)`
+    top: -36px;
+    left: 360px;
+    background: #fff;
+    z-index: 3;
+    position: absolute;
+    width: 50px;
+`;
 
 const StyledView = styled.View`
   flex: 1;

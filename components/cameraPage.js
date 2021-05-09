@@ -34,12 +34,12 @@ class CameraPage extends React.Component {
             this.setState({ awaitingGoogle: false});
             return;
         });
+        this.setState({capturing: false, captures: [photoData, ...this.state.captures] })
         const image = await getRawLabels(photoData.base64).catch(e => { 
             console.log(Error(e));
             this.setState({ awaitingGoogle: false});
             return;
         });
-        this.setState({capturing: false, captures: [photoData, ...this.state.captures] })
         this.setState({awaitingGoogle: false, imageLabels: [image, ...this.state.imageLabels]});
         console.log(this.state.imageLabels)
         console.log(this.filteredListofFood())
