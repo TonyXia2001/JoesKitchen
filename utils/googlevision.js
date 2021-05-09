@@ -8,7 +8,7 @@ async function getRawLabels(image) {
         {
           features: [
             {
-              type: "LABEL_DETECTION"
+              type: "OBJECT_LOCALIZATION"
             }
           ],
           image: {
