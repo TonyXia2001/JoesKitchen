@@ -16,7 +16,8 @@ function Recipes({navigation, route}) {
           apiKey: SPOON_API_KEY,
           ingredients: ls.join(","),
           number: num,
-          ranking: 2
+          ranking: 1,
+          limitLicense: false,
         }
       });
       // let response = {data: ["apple", "sugar"]}
