@@ -3,6 +3,8 @@
 > By Tony, Alex, and Ryan  
 > TOHacks 21 Submission
 
+![Live Demo Video](https://www.youtube.com/watch?v=YzSc19ZaH7U)
+
 ## Try it Out!
 1. Install npm and the lastest version of node at https://nodejs.org/en/
 2. Clone the repo
