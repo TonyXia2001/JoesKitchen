@@ -23,7 +23,6 @@ function MainPage(props) {
   );
 }
 
-<<<<<<< HEAD
 const styles = StyleSheet.create({
   title:{
     color: "black",
@@ -54,16 +53,5 @@ const styles = StyleSheet.create({
       zIndex: -1
   }
 });
-=======
-const StyledTouchableOpacity = styled(TouchableOpacity)`
-  marginTop: 50px;
-  justifyContent: center;
-  alignItems: center;
-  width: 200px;
-  height: 50px;
-  borderRadius: 25px;
-  backgroundColor: turquoise;
-`;
->>>>>>> master
 
 export { MainPage };
