@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import styled from 'styled-components';
 
 function MainPage(props) {
@@ -22,7 +22,7 @@ function MainPage(props) {
   );
 }
 
-const StyledTouchableOpacity = styled.TouchableOpacity`
+const StyledTouchableOpacity = styled(TouchableOpacity)`
   marginTop: 50px;
   justifyContent: center;
   alignItems: center;

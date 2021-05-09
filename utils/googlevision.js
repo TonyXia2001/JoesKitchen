@@ -20,7 +20,11 @@ async function getRawLabels(image) {
   ).catch(e => {
     console.log(Error(e));
   });
-  return response.data
+  if (response.data) {
+    return response.data;
+  } else {
+    return {};
+  }
 }
 
-export default getRawLabels
+export default getRawLabels;
