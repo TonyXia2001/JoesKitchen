@@ -23,7 +23,7 @@ export default function RecipeCard(props) {
   }, [])
 
   const handlePress = useCallback(async () => {
-    const supported = await Linking.canOpenURL();
+    const supported = await Linking.canOpenURL(link);
 
     if (supported) {
       await Linking.openURL(link);
