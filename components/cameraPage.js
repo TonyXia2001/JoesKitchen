@@ -30,10 +30,11 @@ class CameraPage extends React.Component {
 
     handleShortCapture = async () => {
         const photoData = await this.camera.takePictureAsync({base64: true});
-        const image = await getRawLabels(photoData.base64);
-        this.setState({imageLabels: [image, ...this.state.imageLabels]});
-        console.log(this.state.imageLabels)
         this.setState({ capturing: false, captures: [photoData, ...this.state.captures] })
+        const labels = await getRawLabels(photoData.base64);
+        this.setState({imageLabels: [labels, ...this.state.imageLabels]});
+        console.log(this.state.imageLabels)
+        
     };
 
     // handleLongCapture = async () => {
