@@ -23,10 +23,15 @@ export default function RecipeCard(props) {
   }, [])
 
   const handlePress = useCallback(async () => {
-    const supported = await Linking.canOpenURL(link);
+    const supported = await Linking.canOpenURL(link).catch(e => {
+      console.log(Error(e));
+      return false;
+    });
 
     if (supported) {
-      await Linking.openURL(link);
+      await Linking.openURL(link).catch(e => {
+        console.log(Error(e));
+      });
     } else {
       Alert.alert(`Don't know how to open this URL: ${link}`);
     }
