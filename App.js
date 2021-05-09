@@ -13,8 +13,9 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="MainPage"
+          name="Home"
           component={ MainPage }
+          options={{title: "Joe's Kitchen", headerShown: false}}
         />
         <Stack.Screen
           name="CameraPage"
