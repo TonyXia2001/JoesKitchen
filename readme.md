@@ -27,3 +27,6 @@ Through this project, we significantly improved our knowledge of the React frame
 
 ## What's next for Joe's Kitchen
 Next steps for Joe's Kitchen are to fine tune the model used to identify food items. As powerful as Google's cloud vision API is, it does not have the level of precision we would like for a potential final product. We hope to use Google's AutoML system along with our own training data to create a more focused model that would be able to identify various foods quickly and accurately. Further development on the user interface would of course make the entire experience much smoother as well.
+
+## Who's Joe?
+You probably don't want to ask this question...
