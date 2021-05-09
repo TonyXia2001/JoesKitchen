@@ -29,8 +29,8 @@ class CameraPage extends React.Component {
     // };
 
     handleShortCapture = async () => {
-        const photoData = await this.camera.takePictureAsync({base64: true});
-        const image = await getRawLabels(photoData.base64);
+        const photoData = await this.camera.takePictureAsync({base64: true}).catch(e => console.log(Error(e)));
+        const image = await getRawLabels(photoData.base64).catch(e => console.log(Error(e)));
         this.setState({imageLabels: [image, ...this.state.imageLabels]});
         console.log(this.state.imageLabels)
         this.setState({ capturing: false, captures: [photoData, ...this.state.captures] })
@@ -42,7 +42,7 @@ class CameraPage extends React.Component {
     // };
 
     async componentDidMount() {
-        const camera = await Camera.requestPermissionsAsync();
+        const camera = await Camera.requestPermissionsAsync().catch(e => console.log(Error(e)));
         const hasCameraPermission = (camera.status === 'granted');
         this.setState({ hasCameraPermission });
     };
