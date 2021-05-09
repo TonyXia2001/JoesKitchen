@@ -41,8 +41,6 @@ class CameraPage extends React.Component {
             return;
         });
         this.setState({awaitingGoogle: false, imageLabels: [image, ...this.state.imageLabels]});
-        console.log(this.state.imageLabels)
-        console.log(this.filteredListofFood())
         
     };
 

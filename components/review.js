@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { Text, ScrollView, View, FlatList, TouchableOpacity, SafeAreaView } from 'react-native';
 import styled from 'styled-components';
 import Dialog from "react-native-dialog";
 
@@ -10,7 +10,7 @@ function Review({navigation, route}) {
   useEffect(() => {
     console.log(foodItems)
     console.log(route.params.foodList)
-    setFoodItems(route.params.foodList)
+    setFoodItems([...new Set(route.params.foodList)]);
   }, []);
 
   const deleteFoodItem = (foodName) => {
@@ -18,7 +18,14 @@ function Review({navigation, route}) {
   }
 
   const createFoodItem = (foodName) => {
-    setFoodItems([...foodItems, foodName]);
+    if (foodName === "" || foodName === null || foodName === undefined) {
+      return;
+    }
+    if (foodItems.findIndex(food => food === foodName ) === -1) {
+      setFoodItems([...foodItems, foodName]);
+    } else {
+      alert("You already added this food!");
+    }
   }
 
   return (
@@ -29,29 +36,30 @@ function Review({navigation, route}) {
       }}>
           <Text>Next</Text>
       </StyledNext>
+      <FoodInputDialog 
+        visible={ dialogVisible }
+        setVisible={ setDialogVisible }
+        createFood={ createFoodItem }
+      />
+      <StyledAdd
+        onPress={ () => {
+          setDialogVisible(true);
+        }}
+      >
+        <Text style={{ color: "white", fontSize: 24 }}>+</Text>
+      </StyledAdd>
       <StyledView>
-        <FoodInputDialog 
-          visible={ dialogVisible }
-          setVisible={ setDialogVisible }
-          createFood={ createFoodItem }
-        />
-        <StyledAdd
-          onPress={ () => {
-            setDialogVisible(true);
-          }}
-        >
-          <Text style={{ color: "white", fontSize: 24 }}>+</Text>
-        </StyledAdd>
-        <FlatList
-          keyExtractor={ (item, index) => item}
-          data={ foodItems }
-          renderItem={ ({ item }) => (
+        <SafeAreaView> 
+          {
+          foodItems.map((item, index) => (
             <FoodItem
+              key={ item }
               name={ item }
               deleteFunction={ deleteFoodItem.bind(this, item) }
             />
-          )}
-        />
+          ))
+          }
+        </SafeAreaView>
       </StyledView>
     </React.Fragment>
   );
@@ -125,7 +133,7 @@ const StyledAdd = styled(TouchableOpacity)`
   elevation: 15;
 `;
 
-const StyledView = styled.View`
+const StyledView = styled(ScrollView)`
   flex: 1;
   marginLeft: 2.5%;
   marginRight: 2.5%;

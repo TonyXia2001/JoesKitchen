@@ -30,12 +30,6 @@ function Recipes({navigation, route}) {
   if (loading) {
     return (
       <View>
-        <StyledNext
-          onPress={ () => {
-          navigation.navigate('Recipes', {ingredients: foodItems});
-        }}>
-          <Text>Home</Text>
-        </StyledNext>
       </View>
     );
   } else {
@@ -49,7 +43,7 @@ function Recipes({navigation, route}) {
           onPress={ () => {
           navigation.navigate('Home');
         }}>
-          <Text>Next</Text>
+          <Text>Home</Text>
         </StyledNext>
         <ScrollView>
         {results}
