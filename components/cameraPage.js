@@ -66,7 +66,7 @@ class CameraPage extends React.Component {
                         if (this.state.awaitingGoogle === true) {
                             Alert.alert("Please wait until Google processes your images!");
                         } else {
-                            console.log("joe time");
+                            this.props.navigation.navigate('Review');
                         }
                     }}>
                         <Text>Next</Text>
