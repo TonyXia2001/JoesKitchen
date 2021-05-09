@@ -1,7 +1,6 @@
 import React from 'react';
 import { Camera } from 'expo-camera';
 import { View, Text } from 'react-native';
-import * as Permissions from 'expo-permissions';
 
 import styles from './styles';
 import Toolbar from './toolbarComponent';
@@ -43,9 +42,8 @@ class CameraPage extends React.Component {
     // };
 
     async componentDidMount() {
-        const camera = await Permissions.askAsync(Permissions.CAMERA);
+        const camera = await Camera.requestPermissionsAsync();
         const hasCameraPermission = (camera.status === 'granted');
-
         this.setState({ hasCameraPermission });
     };
 
