@@ -14,7 +14,7 @@ function MainPage(props) {
       <StyledButton
         onPress={() => props.navigation.navigate("CameraPage")}
       >
-        <Text>Start</Text>
+        <Text style={styles.start}>Start</Text>
       </StyledButton>
     </View>
   );
@@ -36,6 +36,9 @@ const StyledButton = styled(TouchableOpacity)`
 `;
 
 const styles = StyleSheet.create({
+  start: {
+    textAlign: "center"
+  },
   title:{
     color: "black",
     marginLeft: "7%",
