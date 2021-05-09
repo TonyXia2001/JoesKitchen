@@ -12,6 +12,8 @@ export default function RecipeCard(props) {
         apiKey: SPOON_API_KEY,
         includeNutrition: false
       }
+    }).catch(e => {
+      console.log(Error(e));
     });
     setLink(response.data.sourceUrl);
     console.log(response.data.sourceUrl);

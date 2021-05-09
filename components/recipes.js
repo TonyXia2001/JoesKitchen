@@ -10,6 +10,7 @@ function Recipes({navigation, route}) {
   const [recipes, setRecipes] = useState(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
+    console.log(SPOON_API_KEY);
     async function fetchRecipes(ls, num=5) {
       const response = await axios.get('https://api.spoonacular.com/recipes/findByIngredients', {
         params: {
@@ -19,6 +20,9 @@ function Recipes({navigation, route}) {
           ranking: 1,
           limitLicense: false,
         }
+      }).catch(e => {
+        console.log(Error(e));
+        alert("Could not fetch recipes from API.")
       });
       // let response = {data: ["apple", "sugar"]}
       // console.log(response);
