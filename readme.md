@@ -1,7 +1,14 @@
 # Joe's Kitchen
 
-> By Tony, Alex, and Ryan
+> By Tony, Alex, and Ryan  
 > TOHacks 21 Submission
+
+## Try it Out!
+1. Install npm and the lastest version of node at https://nodejs.org/en/
+2. Clone the repo
+3. Insider the repo, run `npm install`
+4. `npm start` to start the expo console
+5. On the leftside, click on your desired platform to run the app. You can also scan the qr code with your phone to run it on your phone!
 
 ## Inspiration
 35.5 billion kilograms of food is wasted every year in Canada, with the average consumer wasting 2 kilograms of food every week. This is equivalent to 56.5 million tonnes of CO2 emissions, or the carbon footprint for 12 million cars per year. Since the pandemic, people have started to become more aware of the food they waste due to more time spent at home, but when this inevitably ends, people are going to go back to their old ways.
@@ -27,6 +34,3 @@ Through this project, we significantly improved our knowledge of the React frame
 
 ## What's next for Joe's Kitchen
 Next steps for Joe's Kitchen are to fine tune the model used to identify food items. As powerful as Google's cloud vision API is, it does not have the level of precision we would like for a potential final product. We hope to use Google's AutoML system along with our own training data to create a more focused model that would be able to identify various foods quickly and accurately. Further development on the user interface would of course make the entire experience much smoother as well.
-
-## Who's Joe?
-You probably don't want to ask this question...
