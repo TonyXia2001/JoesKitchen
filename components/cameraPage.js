@@ -6,6 +6,8 @@ import styles from './styles';
 import Toolbar from './toolbarComponent';
 import Gallery from './galleryComponent';
 import getRawLabels from '../utils/googlevision'
+import { foodWords } from '../utils/foods'
+import FuzzySet from 'fuzzyset'
 
 class CameraPage extends React.Component {
     camera = null;
@@ -17,6 +19,7 @@ class CameraPage extends React.Component {
         hasCameraPermission: null,
         cameraType: Camera.Constants.Type.back,
         flashMode: Camera.Constants.FlashMode.off,
+        foodWords: FuzzySet(foodWords.words)
     };
 
     setFlashMode = (flashMode) => this.setState({ flashMode });
@@ -33,8 +36,6 @@ class CameraPage extends React.Component {
         this.setState({ capturing: false, captures: [photoData, ...this.state.captures] })
         const labels = await getRawLabels(photoData.base64);
         this.setState({imageLabels: [labels, ...this.state.imageLabels]});
-        console.log(this.state.imageLabels)
-        
     };
 
     // handleLongCapture = async () => {
@@ -47,6 +48,36 @@ class CameraPage extends React.Component {
         const hasCameraPermission = (camera.status === 'granted');
         this.setState({ hasCameraPermission });
     };
+
+    getListofFood = () => {
+        var listofLabels = []
+        const imglabs = this.state.imageLabels
+
+        if (imglabs == null) {
+            return listofLabels
+        }
+        for (let i = 0; i < imglabs.length; i++) {
+            for (let j = 0; j < imglabs[i].responses[0].localizedObjectAnnotations.length; j++){
+                if (imglabs[i].responses[0].localizedObjectAnnotations[j].score > 0.5) { // Change score to good one
+                    listofLabels.push(imglabs[i].responses[0].localizedObjectAnnotations[j].name)
+                }
+            }
+        }
+        return listofLabels
+    }
+
+    filteredListofFood = () => {
+        let filteredList = []
+        let word = ""
+        let listofFood = this.getListofFood()
+        for (let i = 0; i < listofFood.length; i++) {
+            word = this.state.foodWords.get(listofFood[i], null, .5)
+            if (word != null && word.length != 0){
+                filteredList.push(word[0][1])
+            }
+        }
+        return filteredList
+    }
 
     render() {
         const { hasCameraPermission, flashMode, cameraType, capturing, captures } = this.state;
