@@ -1,40 +1,52 @@
 import React from 'react';
-import { StyleSheet, View, Image, Text } from 'react-native';
+import { StyleSheet, View, Image, Text, TouchableOpacity } from 'react-native';
 // import styled from 'styled-components';
 import { Button } from 'react-native-elements';
 // import styles from './styles';
 
 
-function MainPage(props) {
+function MainPage(props) { 
   return(
     <View style={styles.container}>
       <View style={styles.backgroundContainer}>
         <Image style={styles.bakcgroundImage} source={require('../assets/home.jpg')} />
       </View>
-      <Text style={styles.title}>Joe's <br/>Kitchen</Text>
-      <Button 
-        title="Get Started"
-        type="outline"
-        onPress={ () => props.navigation.navigate("CameraPage") }
-        containerStyle={{width: "30%", marginBottom: "20%", marginLeft: "7%"}}
-        // titleStyle={{color: "black"}}
-      />
+      <Text style={styles.title}>Joe's {"\n"}Kitchen</Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => props.navigation.navigate("CameraPage")}
+      >
+        <Text>Start</Text>
+      </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  button: {
+    width: "30%", 
+    marginBottom: "20%", 
+    marginLeft: "7%", 
+    paddingTop: "10px",
+    paddingBottom: "10px",
+    paddingLeft: "20px",
+    paddingRight: "20px",
+    border: "1px silver solid",
+    textAlign: "center",
+    fontSize: 30,
+    borderRadius: "5%"
+  },
   title:{
     color: "black",
     marginLeft: "7%",
     marginTop: "20%",
-    fontSize: "30pt",
+    fontSize: 50,
     zIndex: 1
   },
   container: {
       flex: 1,
       backgroundColor: '#fff',
-      alignItems: 'left',
+      alignItems: 'flex-start',
       justifyContent: 'space-between',
   },
   backgroundContainer: {
