@@ -6,10 +6,16 @@
 ## Try it Out!
 1. Install npm and the lastest version of node at https://nodejs.org/en/
 2. Clone the repo
-3. Insider the repo, run `npm install`
-4. `npm start` to start the expo console
-5. Download Expo Go on your phone
-6. On the leftside, click on your desired platform to run the app. You can also scan the qr code with your phone to run it on your phone!
+3. Create an `.env` file in the repo
+4. Inside `.env`, add the following code: 
+   ```
+   SPOON_API_KEY="YOUR_SPOONACULAR_API_KEY"
+   GOOGLE_API_KEY="YOUR_GOOGLE_VISION_API_KEY"
+   ```
+5. Insider the repo, run `npm install`
+6. `npm start` to start the expo console
+7. Download Expo Go on your phone
+8. In the leftside, click on your desired platform to run the app. You can also scan the qr code with your phone to run it on your phone!
 
 ## Inspiration
 35.5 billion kilograms of food is wasted every year in Canada, with the average consumer wasting 2 kilograms of food every week. This is equivalent to 56.5 million tonnes of CO2 emissions, or the carbon footprint for 12 million cars per year. Since the pandemic, people have started to become more aware of the food they waste due to more time spent at home, but when this inevitably ends, people are going to go back to their old ways.
